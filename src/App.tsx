@@ -1,6 +1,13 @@
+import SearchBubbles from './components/SearchBubbles';
+import Pages from './pages/Pages';
 
 function App() {
-  return (<></>)
+	return (
+		<div>
+			<SearchBubbles/>
+			<Pages />
+		</div>
+	);
 }
 
-export default App
+export default App;

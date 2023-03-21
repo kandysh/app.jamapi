@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=Montserrat:wght@400;500&family=Overpass:ital,wght@0,600;1,400&display=swap');
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Lobster Two', cursive;
+	font-family: 'Montserrat', sans-serif;
+	font-family: 'Overpass', sans-serif;
+}
+body {
+	margin: 0% 20%;
+}
+
+h4{
+	font-weight: 600;
+	color:#3d5a80;
+}
+h3 {
+	font-size: 1rem;
+	font-weight: 600;
+	color: #003049;
+}
+
+a {
+	color: #354f52;
+}
