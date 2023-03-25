@@ -39,13 +39,38 @@ interface Content {
 	thumbnail: string;
 	description: string;
 	totalEpisodes: number;
-	type: Type;
-	contentStatus: Status;
+	type: string;
+	contentStatus: string;
 	score: number;
 	likes: number;
-	season: string;
-	year: number;
 	alternativeName: string;
-	season: Season;
+	season: {
+		season: string;
+		year: number;
+	};
 	tags: string[];
+}
+
+type typeParams = {
+	type: string;
+};
+
+enum Tags {
+	ACTION = 'ACTION',
+	ADVENTURE = 'ADVENTURE',
+	COMEDY = 'COMEDY',
+	DRAMA = 'DRAMA',
+	ECCHI = 'ECCHI',
+	FANTASY = 'FANTASY',
+	HORROR = 'HORROR',
+	MECHA = 'MECHA',
+	MUSIC = 'MUSIC',
+	MYSTERY = 'MYSTERY',
+	PSYCHOLOGICAL = 'PSYCHOLOGICAL',
+	ROMANCE = 'ROMANCE',
+	SCI_FI = 'SCI-FI',
+	SLICE_OF_LIFE = 'SLICE OF LIFE',
+	SPORTS = 'SPORTS',
+	SUPERNATURAL = 'SUPERNATURAL',
+	THRILLER = 'THRILLER',
 }

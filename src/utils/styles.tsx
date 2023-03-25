@@ -73,4 +73,16 @@ const Gradient = styled.div`
 	height: 100%;
 	background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
 `;
-export { Wrapper, Card, Gradient, BigCard };
+const Title = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	h5 {
+		cursor: pointer;
+		transition: 0.1s;
+		:hover {
+			color: rgba(0, 46, 71,0.9);
+		}
+	}
+`;
+export { Wrapper, Card, Gradient, BigCard, Title};

@@ -16,7 +16,7 @@ const ContentSlider = ({ contents,cardsOnPage }: { contents: Content[],cardsOnPa
 		>
 			{contents.map((content) => (
 				<SplideSlide key={content.contentId}>
-					<ContentCard title={content.title} picture={content.picture} cardsOnPage={cardsOnPage}/>
+					<ContentCard title={content.title} picture={content.picture} cardsOnPage={cardsOnPage} contentId={content.contentId}/>
 				</SplideSlide>
 			))}
 		</Splide>

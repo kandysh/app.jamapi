@@ -1,48 +1,45 @@
-import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { getContent } from '../api/apiContent';
-import { Wrapper } from '../utils/styles';
-import ContentCard from './ContentCard';
+import { Title } from '../utils/styles';
+import ShowGrid from './ShowGrid';
 
 const TopHundred = () => {
-	const [contents, setContents] = useState<Content[]>([]);
-	const getTopAll = async () => {
-		const check = localStorage.getItem('top-100');
+	const { type } = useParams<typeParams>();
+	const check = localStorage.getItem(`top-${type}`);
+	const [loadAll, setLoadAll] = useState(false);
+	const [contents, setContents] = useState<Content[]>(
+		check ? JSON.parse(check) : []
+	);
 
-		check
-			? setContents(JSON.parse(check))
-			: await getContent('top/all')
-					.then((res) => {
-						setContents(res);
-						localStorage.setItem('top-100', JSON.stringify(res));
-					})
-					.catch((err) => console.log(err));
+	const getTopAll = async (type: string | undefined, loadAll: boolean) => {
+		await getContent(`top/${type}`)
+			.then((res) => {
+				if (!loadAll) {
+					setContents(res.splice(0, 20));
+					localStorage.setItem(`top-${type}`, JSON.stringify(res));
+				} else {
+					setContents(res);
+				}
+				console.log(contents);
+			})
+			.catch((err) => console.log(err));
 	};
 	useEffect(() => {
-		getTopAll();
-	}, []);
+		getTopAll(type, loadAll);
+	}, [type, loadAll]);
+	const handleOnClick = () => {
+		setLoadAll(!loadAll);
+	};
 	return (
-		<div>
-			<Wrapper>
-				<h3>ALL TIME POPULAR</h3>
-				<Splide
-					options={{
-						direction: 'ttb',
-						height: '10rem',
-						wheel: true,
-						lazyLoad: 'nearby',
-						arrows: false,
-						pagination: false,
-					}}
-				>
-					{contents.map((content) => (
-						<SplideSlide key={content.contentId}>
-							<ContentCard title={content.title} picture={content.picture} />
-						</SplideSlide>
-					))}
-				</Splide>
-			</Wrapper>
-		</div>
+		<>
+			<Title>
+				<h3>ALL TIME POPULAR {type === 'all' ? '' : type?.toUpperCase()}</h3>{' '}
+				<h5 onClick={handleOnClick}>VIEW ALL</h5>
+			</Title>
+			<br />
+			<ShowGrid contents={contents} />
+		</>
 	);
 };
 

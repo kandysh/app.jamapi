@@ -1,21 +1,20 @@
 import { useEffect, useState } from 'react';
 import { getContent } from '../api/apiContent';
 import { Wrapper } from '../utils/styles';
-import ContentSlider from './ContentSlider';
+import ContentSlider from './ContentCard/ContentSlider';
 
 const Trending = () => {
-	const [contents, setContents] = useState<Content[]>([]);
+	const check = localStorage.getItem('trending');
+	const [contents, setContents] = useState<Content[]>(
+		check ? JSON.parse(check) : []
+	);
 	const getTrending = async () => {
-		const check: string | null = localStorage.getItem('trending');
-
-		check
-			? setContents(JSON.parse(check))
-			: getContent('trending')
-					.then((res) => {
-						setContents(res);
-						localStorage.setItem('trending', JSON.stringify(res));
-					})
-					.catch((err) => console.log(err));
+		await getContent('trending')
+			.then((res) => {
+				setContents(res);
+				localStorage.setItem('trending', JSON.stringify(res));
+			})
+			.catch((err) => console.log(err));
 	};
 	useEffect(() => {
 		getTrending();
@@ -24,8 +23,8 @@ const Trending = () => {
 		<div>
 			<Wrapper>
 				<h3>TRENDING</h3>
-				<br/>
-				<ContentSlider cardsOnPage={5} contents={contents} />
+				<br />
+				<ContentSlider cardsOnPage={4} contents={contents} />
 			</Wrapper>
 		</div>
 	);

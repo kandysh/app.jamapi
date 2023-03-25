@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=Montserrat:wght@400;500&family=Overpass:ital,wght@0,600;1,400&display=swap');
 * {
+	user-select: text;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -18,7 +19,11 @@ h4{
 h3 {
 	font-size: 1rem;
 	font-weight: 600;
-	color: #003049;
+	color: rgb(0, 46, 71);
+}
+h5 {
+	color: rgba(0, 46, 71,0.5);
+	font-size: 0.6rem;
 }
 
 a {
