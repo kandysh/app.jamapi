@@ -51,22 +51,19 @@ export const SLink = styled(NavLink)`
 	height: 6rem;
 	cursor: pointer;
 	transform: scale(0.8);
+	background-color: none;
 	h4 {
-		color: white;
+		color: #edf1f5;
+		background: none;
 		font-size: 0.8rem;
 	}
 	svg {
-		color: white;
+		color: #edf1f5;
 		font-size: 1.5rem;
+		background: none;
 	}
 	&.active {
 		background: linear-gradient(to right, #f27121, #e94057);
-		svg {
-			color: white;
-		}
-		h4 {
-			color: white;
-		}
 	}
 	@media screen and (max-width: 1300px) {
 		width: 4rem;

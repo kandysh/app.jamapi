@@ -19,4 +19,9 @@ const getContentDetails = async (contentId: string) =>
 		.get(`${API_URI}/content/show/${contentId}`)
 		.then((res): Content => res.data);
 
-export { getContent, searchContent, getContentDetails };
+const getRelatedContent = async (contentId: string) =>
+	await axios
+		.get(`${API_URI}/content/related/${contentId}`)
+		.then((res) => res.data);
+
+export { getContent, searchContent, getContentDetails , getRelatedContent };

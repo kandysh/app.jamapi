@@ -74,3 +74,9 @@ enum Tags {
 	SUPERNATURAL = 'SUPERNATURAL',
 	THRILLER = 'THRILLER',
 }
+interface NewUserData {
+	email: string;
+	password: string;
+	username: string;
+	cpassword: string;
+}

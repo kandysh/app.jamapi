@@ -1,7 +1,9 @@
+import { motion } from 'framer-motion';
 import CurrentTop from '../components/CurrentTop';
+import Search from '../components/Search';
+import SearchBubbles from '../components/SearchBubbles';
 import Trending from '../components/Trending';
 import UpcomingNextSeason from '../components/UpcomingNextSeason';
-import { motion } from 'framer-motion';
 const Home = () => {
 	return (
 		<motion.div
@@ -10,6 +12,8 @@ const Home = () => {
 			exit={{ opacity: 0 }}
 			transition={{ duration: 0.5 }}
 		>
+			<Search />
+			<SearchBubbles />
 			<CurrentTop />
 			<Trending />
 			<UpcomingNextSeason />

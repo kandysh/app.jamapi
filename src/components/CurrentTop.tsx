@@ -12,7 +12,6 @@ const CurrentTop = () => {
 		check ? JSON.parse(check) : []
 	);
 	const getCurrentOnGoing = async () => {
-		console.log(contents);
 		await getContent('current/top')
 			.then((res) => {
 				setContents(res);

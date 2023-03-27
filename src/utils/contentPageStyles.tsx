@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 export const DetailsWrapper = styled.div`
-	margin-top: 10rem;
+	margin-top: 1rem;
 	margin-bottom: 5rem;
 	display: flex;
 	.active {
 		background: linear-gradient(35deg, #494949, #313131);
 		color: white;
 	}
-	h2 {
+	h3 {
+		font-style: italic;
 		margin-bottom: 2rem;
 	}
 	li {
@@ -28,5 +29,6 @@ export const Button = styled.button`
 	font-weight: 600;
 `;
 export const Info = styled.div`
+width: 40%;
 	margin-left: 10rem;
 `;

@@ -7,7 +7,7 @@ const ContentSlider = ({ contents,cardsOnPage }: { contents: Content[],cardsOnPa
 			options={{
 				perPage: cardsOnPage,
 				drag: 'free',
-				type: 'loop',
+				type: 'slide',
 				arrows : false,
 				snap:true,
 				pagination : false,

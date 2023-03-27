@@ -21,7 +21,6 @@ const TopHundred = () => {
 				} else {
 					setContents(res);
 				}
-				console.log(contents);
 			})
 			.catch((err) => console.log(err));
 	};
