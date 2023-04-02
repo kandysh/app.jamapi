@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getContent } from '../api/apiContent';
+import { getUpcomingContent } from '../api/apiContent';
 import { Wrapper } from '../utils/styles';
 import ContentSlider from './ContentCard/ContentSlider';
 
@@ -9,7 +9,7 @@ const UpcomingNextSeason = () => {
 		check ? JSON.parse(check) : []
 	);
 	const getUpcoming = async () => {
-		await getContent('search?status=upcoming&year=2023&season=spring')
+		await getUpcomingContent()
 			.then((res) => {
 				setContents(res);
 				localStorage.setItem('upcoming-next', JSON.stringify(res));

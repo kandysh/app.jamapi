@@ -1,4 +1,11 @@
 import axios from 'axios';
+enum season {
+	WINTER = 'winter',
+	SPRING = 'spring',
+	SUMMER = 'summer',
+	FALL = 'fall',
+	UNDEFINED = 'undefined',
+}
 const API_URI = import.meta.env.VITE_JAMAPI_URL;
 const getContent = async (route: string) =>
 	await axios
@@ -24,4 +31,20 @@ const getRelatedContent = async (contentId: string) =>
 		.get(`${API_URI}/content/related/${contentId}`)
 		.then((res) => res.data);
 
-export { getContent, searchContent, getContentDetails , getRelatedContent };
+const getUpcomingContent = async () => {
+	const url = `${API_URI}/content/search?year=${new Date(
+		Date.now()
+	).getUTCFullYear()}&season=${
+		Object.values(season)[
+			Math.ceil((new Date(Date.now()).getUTCMonth() / 4 + 1) % 4)
+		]
+	}`;
+	return await axios.get(url).then((res) => res.data);
+};
+export {
+	getContent,
+	searchContent,
+	getContentDetails,
+	getRelatedContent,
+	getUpcomingContent,
+};

@@ -21,13 +21,7 @@ enum Status {
 	UPCOMING,
 	UNKNOWN,
 }
-enum season {
-	WINTER,
-	SPRING,
-	SUMMER,
-	FALL,
-	UNDEFINED,
-}
+
 interface Season {
 	season: season;
 	year: number;
