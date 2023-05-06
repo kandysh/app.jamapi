@@ -4,7 +4,6 @@ import { checkUsername } from '../api/apiAuth';
 import { ErrorDiv, LoginButton, LoginFormInput } from '../utils/formStyles';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
-import { MdEmojiObjects } from 'react-icons/md';
 const Login = () => {
 	const schema = z
 		.object({
